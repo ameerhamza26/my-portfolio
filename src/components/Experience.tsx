@@ -1,0 +1,136 @@
+import React, { useRef, useState, useEffect } from 'react';
+import { Calendar, MapPin } from 'lucide-react';
+import { useInView } from '../hooks/useInView';
+
+type Job = {
+  id: number;
+  company: string;
+  position: string;
+  location: string;
+  startDate: string;
+  endDate: string | 'Present';
+  description: string[];
+};
+
+export const Experience: React.FC = () => {
+  const jobs: Job[] = [
+    {
+      id: 1,
+      company: 'Upwork',
+      position: 'Senior Software Engineer',
+      location: 'Remote',
+      startDate: 'Jan 2022',
+      endDate: 'Present',
+      description: [
+        'Developed and maintained complex web applications using React, Next.js, and Node.js',
+        'Implemented responsive designs and optimized application performance',
+        'Collaborated with international clients to deliver high-quality solutions',
+        'Achieved Top Rated Plus status with 100% job success score'
+      ]
+    },
+    {
+      id: 2,
+      company: 'Fiverr',
+      position: 'Full Stack Developer',
+      location: 'Remote',
+      startDate: 'Mar 2020',
+      endDate: 'Dec 2021',
+      description: [
+        'Built custom web applications for diverse client requirements',
+        'Specialized in React.js and Node.js development',
+        'Maintained high customer satisfaction with 5-star ratings',
+        'Delivered over 100 successful projects'
+      ]
+    },
+    {
+      id: 3,
+      company: 'Freelance',
+      position: 'Web Developer',
+      location: 'Remote',
+      startDate: 'Jun 2018',
+      endDate: 'Feb 2020',
+      description: [
+        'Developed responsive websites and web applications',
+        'Worked with various technologies including React and JavaScript',
+        'Managed client relationships and project timelines effectively',
+        'Built a strong portfolio of successful projects'
+      ]
+    },
+  ];
+
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { threshold: 0.1 });
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true);
+    }
+  }, [isInView, hasAnimated]);
+
+  return (
+    <section id="experience" className="py-20 bg-gray-50">
+      <div 
+        ref={ref}
+        className={`container mx-auto px-4 md:px-6 transition-all duration-1000 ${
+          hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+        }`}
+      >
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+          Work Experience
+        </h2>
+        <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          My professional journey in software development and the impact I've made along the way.
+        </p>
+
+        <div className="max-w-3xl mx-auto relative">
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gray-300 transform md:translate-x-px"></div>
+
+          {jobs.map((job, index) => (
+            <div 
+              key={job.id} 
+              className={`mb-12 relative ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12 ml-8 md:ml-auto'} md:w-1/2 ${
+                hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+              }`}
+              style={{ 
+                transitionDelay: `${index * 0.2}s`,
+              }}
+            >
+              <div 
+                className={`absolute top-0 left-0 md:left-auto ${
+                  index % 2 === 0 ? 'md:right-0 md:translate-x-1/2' : 'md:left-0 md:-translate-x-1/2'
+                } w-4 h-4 rounded-full bg-blue-600 border-4 border-white z-10 transform -translate-x-1/2 md:translate-y-1`}
+              ></div>
+              
+              <div className={`bg-white rounded-lg shadow-md p-6 ${index % 2 === 0 ? 'md:mr-6' : 'md:ml-6'}`}>
+                <h3 className="text-xl font-bold text-gray-900 mb-1">{job.position}</h3>
+                <h4 className="text-lg font-medium text-blue-600 mb-3">{job.company}</h4>
+                
+                <div className="flex flex-wrap mb-4 text-sm text-gray-500 gap-4">
+                  <div className="flex items-center">
+                    <Calendar size={16} className="mr-1" />
+                    <span>{job.startDate} — {job.endDate}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <MapPin size={16} className="mr-1" />
+                    <span>{job.location}</span>
+                  </div>
+                </div>
+                
+                <ul className="space-y-2">
+                  {job.description.map((item, idx) => (
+                    <li key={idx} className="text-gray-700 flex">
+                      <span className="mr-2">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
