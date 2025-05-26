@@ -73,7 +73,7 @@ export const Header: React.FC = () => {
           >
             Contact
           </button>
-          <a 
+          {/* <a 
             href="/resume.pdf" 
             target="_blank" 
             rel="noopener noreferrer"
@@ -81,7 +81,7 @@ export const Header: React.FC = () => {
           >
             <Download size={16} className="mr-2" />
             Resume
-          </a>
+          </a> */}
         </nav>
 
         {/* Mobile Menu Button */}

@@ -151,7 +151,14 @@ export const Experience: React.FC = () => {
                   {job.description.map((item, idx) => (
                     <li key={idx} className="text-gray-700 flex">
                       <span className="mr-2">•</span>
-                      <span>{item}</span>
+                      <span
+                        className={`${
+                          [1, 3, 5].includes(job.id) ? 'text-left' : ''
+                        }`}
+                      >
+                        {item}
+                      </span>
+
                     </li>
                   ))}
                 </ul>
