@@ -32,28 +32,57 @@ export const Experience: React.FC = () => {
       id: 2,
       company: 'Simplifi',
       position: 'Senior Software Engineer',
-      location: 'Remote',
-      startDate: 'Mar 2020',
-      endDate: 'Dec 2021',
+      location: 'Karachi',
+      startDate: 'August 2021',
+      endDate: 'June 2024',
       description: [
         'Transitioned our microservices from Postgres to Mysql in response to the need for on-premise data hosting in a specific country',
-        'Specialized in React.js and Node.js development',
-        'Maintained high customer satisfaction with 5-star ratings',
-        'Delivered over 100 successful projects'
+        'Led a team in integrating the new fintech processor M2P and oversaw the integration process',
+        'Successfully designed, developed, and smoothly executed a consumer card project necessitating significant refactoring in microservices',
+        'Previously, we stored documents in the database, but then seamlessly integrated object storage with Oracle cloud to store documents in buckets'
       ]
     },
     {
       id: 3,
-      company: 'Freelance',
-      position: 'Web Developer',
-      location: 'Remote',
-      startDate: 'Jun 2018',
-      endDate: 'Feb 2020',
+      company: 'Securiti AI',
+      position: 'Senior Software Engineer',
+      location: 'Karachi',
+      startDate: 'January 2019',
+      endDate: 'August 2021',
       description: [
-        'Developed responsive websites and web applications',
-        'Worked with various technologies including React and JavaScript',
-        'Managed client relationships and project timelines effectively',
-        'Built a strong portfolio of successful projects'
+        'Worked in Infra team',
+        'Improved system performance by making proactive adjusments and resolving bugs',
+        'Effectively implement SAML SSO Support across multiple Identity providers',
+        'Integrated callback hooks based on enabling or disabling of modules',
+        'Switched to per Schema level separation instead of per Database in Redshift'
+      ]
+    },
+    {
+      id: 4,
+      company: '360 Factors',
+      position: 'Software Engineer',
+      location: 'Karachi',
+      startDate: 'July 2017',
+      endDate: 'January 2019',
+      description: [
+        'Implemented new featurs and addressed bugs using Java Spring Framework within the Predict application',
+        'Configured Teamcity for deployment process',
+        'Migrated the on premise environment to Azure',
+        'Implemented the integration BPM workflows utilizing the Activiti Engine',
+      ]
+    },
+    {
+      id: 5,
+      company: 'Skill Orbit',
+      position: 'Software Engineer',
+      location: 'Karachi',
+      startDate: 'January 2016',
+      endDate: 'July 2017',
+      description: [
+        'Effectively created the Range feature in ArcGIS maps using .NET for a Navy application',
+        'Practical experience with the IBM Bluemix platform and its services',
+        'Designed and built a social sharing application for the food industry using Angular and Ionic framework',
+        'Received the "Outstanding Innovator" Award during the Company\'s Annual Celebration',
       ]
     },
   ];
