@@ -16,9 +16,9 @@ export const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: 'E-Commerce Dashboard',
+      title: 'Simplifi',
       description: 'A comprehensive dashboard for online stores with real-time analytics, inventory management, and order processing capabilities.',
-      image: 'https://images.pexels.com/photos/196646/pexels-photo-196646.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      image: '/images/simplifipay_logo.jpeg',
       tags: ['React', 'TypeScript', 'Tailwind CSS', 'Chart.js'],
       liveUrl: 'https://example.com/ecommerce',
       githubUrl: 'https://github.com/yourusername/ecommerce-dashboard',

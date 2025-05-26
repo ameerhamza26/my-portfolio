@@ -4,34 +4,30 @@ import { useInView } from '../hooks/useInView';
 type Skill = {
   name: string;
   proficiency: number;
-  category: 'frontend' | 'backend' | 'design' | 'tools';
+  category: 'frontend' | 'backend' | 'devops' | 'cloud';
 };
 
 export const Skills: React.FC = () => {
   const skills: Skill[] = [
-    // Frontend
-    { name: 'React.js', proficiency: 95, category: 'frontend' },
-    { name: 'Next.js', proficiency: 90, category: 'frontend' },
-    { name: 'TypeScript', proficiency: 90, category: 'frontend' },
-    { name: 'JavaScript', proficiency: 95, category: 'frontend' },
-    { name: 'Tailwind CSS', proficiency: 90, category: 'frontend' },
-    { name: 'Material UI', proficiency: 85, category: 'frontend' },
-    
     // Backend
-    { name: 'Node.js', proficiency: 85, category: 'backend' },
-    { name: 'Express.js', proficiency: 80, category: 'backend' },
-    { name: 'MongoDB', proficiency: 85, category: 'backend' },
+    { name: 'Java', proficiency: 85, category: 'backend' },
+    { name: 'Go', proficiency: 80, category: 'backend' },
+    { name: 'Spring', proficiency: 85, category: 'backend' },
     { name: 'PostgreSQL', proficiency: 75, category: 'backend' },
-    
-    // Design
-    { name: 'Figma', proficiency: 75, category: 'design' },
-    { name: 'Responsive Design', proficiency: 90, category: 'design' },
-    { name: 'UI/UX Principles', proficiency: 85, category: 'design' },
+    // Frontend
+    { name: 'Angular', proficiency: 60, category: 'frontend' },
+    { name: 'TypeScript', proficiency: 60, category: 'frontend' },
+    { name: 'JavaScript', proficiency: 60, category: 'frontend' },
+    // Devops
+    { name: 'Docker', proficiency: 70, category: 'devops' },
+    { name: 'Kubernetes', proficiency: 70, category: 'devops' },
+    { name: 'Helm', proficiency: 85, category: 'devops' },
+    { name: 'IAC', proficiency: 50, category: 'devops' },
     
     // Tools
-    { name: 'Git', proficiency: 90, category: 'tools' },
-    { name: 'Docker', proficiency: 75, category: 'tools' },
-    { name: 'AWS', proficiency: 70, category: 'tools' },
+    { name: 'AWS', proficiency: 70, category: 'cloud' },
+    { name: 'Digital Ocean', proficiency: 70, category: 'cloud' },
+    { name: 'Oracle Cloud', proficiency: 70, category: 'cloud' },
   ];
 
   const ref = useRef<HTMLDivElement>(null);
