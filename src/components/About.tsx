@@ -40,7 +40,7 @@ export const About: React.FC = () => {
             <div className="md:col-span-3">
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
 
-                I am an accomplished <strong>Software Engineer</strong> with 9 years of extensive experience in backend development, building features in Go and Java, system design, and cloud infrastructure. Over the course of my career, I have developed expertise in a wide array of tools, technologies, and frameworks to deliver secure, scalable, and efficient solutions for diverse industries.
+                I am a <strong>Software Engineer</strong> with 9 years of extensive experience in backend development, building features in Go and Java, system design, and cloud infrastructure. Over the course of my career, I have developed expertise in a wide array of tools, technologies, and frameworks to deliver secure, scalable, and efficient solutions for diverse industries.
               </p>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
               With strong expertise in Java, Go, and cloud-native technologies, I combine backend development proficiency with advanced architecture design and DevOps strategies. My passion lies in helping organizations implement scalable systems, automate infrastructure, and achieve engineering excellence.

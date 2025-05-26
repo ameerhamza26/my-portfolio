@@ -17,7 +17,7 @@ export const Experience: React.FC = () => {
     {
       id: 1,
       company: 'Next Generation Innovations',
-      position: 'Principan Engineer',
+      position: 'Principal Engineer',
       location: 'Karachi',
       startDate: 'June 2024',
       endDate: 'Present',
