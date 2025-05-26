@@ -33,7 +33,7 @@ export const Skills: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { threshold: 0.1 });
   const [hasAnimated, setHasAnimated] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<'all' | 'frontend' | 'backend' | 'design' | 'tools'>('all');
+  const [activeCategory, setActiveCategory] = useState<'all' | 'frontend' | 'backend' | 'devops' | 'tools'>('all');
 
   useEffect(() => {
     if (isInView && !hasAnimated) {
@@ -94,14 +94,14 @@ export const Skills: React.FC = () => {
               Backend
             </button>
             <button
-              onClick={() => setActiveCategory('design')}
+              onClick={() => setActiveCategory('devops')}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                activeCategory === 'design' 
+                activeCategory === 'devops' 
                   ? 'bg-blue-600 text-white' 
                   : 'bg-white text-gray-700 hover:bg-gray-100'
               }`}
             >
-              Design
+              Devops
             </button>
             <button
               onClick={() => setActiveCategory('tools')}
@@ -135,7 +135,7 @@ export const Skills: React.FC = () => {
                     className={`h-2.5 rounded-full transition-all duration-1000 ease-out ${
                       skill.category === 'frontend' ? 'bg-blue-600' :
                       skill.category === 'backend' ? 'bg-teal-600' :
-                      skill.category === 'design' ? 'bg-orange-500' :
+                      skill.category === 'devops' ? 'bg-orange-500' :
                       'bg-purple-600'
                     }`}
                     style={{ 
