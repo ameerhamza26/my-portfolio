@@ -55,12 +55,12 @@ export const Header: React.FC = () => {
           >
             Skills
           </button>
-          <button 
+          {/* <button 
             onClick={() => scrollToSection('projects')}
             className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
           >
             Projects
-          </button>
+          </button> */}
           <button 
             onClick={() => scrollToSection('experience')}
             className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
