@@ -38,7 +38,7 @@ export const Hero: React.FC = () => {
           Software Engineer
         </h2>
         <p className="max-w-2xl mx-auto text-gray-600 mb-10 text-base md:text-lg">
-        Java & Go Expert | Backend Development, Cloud-Native Architectures, System Design, and DevOps Specialist
+        Expert in Java and Go, specializing in backend engineering, cloud-native architectures, system design, and DevOps for scalable, resilient systems.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <button 
