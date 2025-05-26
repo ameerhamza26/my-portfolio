@@ -133,9 +133,21 @@ export const Experience: React.FC = () => {
               ></div>
               
               <div className={`bg-white rounded-lg shadow-md p-6 ${index % 2 === 0 ? 'md:mr-6' : 'md:ml-6'}`}>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">{job.position}</h3>
-                <h4 className="text-lg font-medium text-blue-600 mb-3">{job.company}</h4>
-                
+                <h3
+                  className={`text-xl font-bold text-gray-900 mb-1 ${
+                    [1, 3, 5].includes(job.id) ? 'text-left' : ''
+                  }`}
+                >
+                  {job.position}
+                </h3>
+                <h4
+                  className={`text-lg font-medium text-blue-600 mb-3 ${
+                    [1, 3, 5].includes(job.id) ? 'text-left' : ''
+                  }`}
+                >
+                  {job.company}
+                </h4>
+                  
                 <div className="flex flex-wrap mb-4 text-sm text-gray-500 gap-4">
                   <div className="flex items-center">
                     <Calendar size={16} className="mr-1" />
