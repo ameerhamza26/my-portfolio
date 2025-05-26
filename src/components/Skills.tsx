@@ -24,7 +24,7 @@ export const Skills: React.FC = () => {
     { name: 'Helm', proficiency: 85, category: 'devops' },
     { name: 'IAC', proficiency: 50, category: 'devops' },
     
-    // Tools
+    // Cloud
     { name: 'AWS', proficiency: 70, category: 'cloud' },
     { name: 'Digital Ocean', proficiency: 70, category: 'cloud' },
     { name: 'Oracle Cloud', proficiency: 70, category: 'cloud' },
@@ -33,7 +33,7 @@ export const Skills: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { threshold: 0.1 });
   const [hasAnimated, setHasAnimated] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<'all' | 'frontend' | 'backend' | 'devops' | 'tools'>('all');
+  const [activeCategory, setActiveCategory] = useState<'all' | 'frontend' | 'backend' | 'devops' | 'cloud'>('all');
 
   useEffect(() => {
     if (isInView && !hasAnimated) {
@@ -104,14 +104,14 @@ export const Skills: React.FC = () => {
               Devops
             </button>
             <button
-              onClick={() => setActiveCategory('tools')}
+              onClick={() => setActiveCategory('cloud')}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                activeCategory === 'tools' 
+                activeCategory === 'cloud' 
                   ? 'bg-blue-600 text-white' 
                   : 'bg-white text-gray-700 hover:bg-gray-100'
               }`}
             >
-              Tools
+              Cloud
             </button>
           </div>
 

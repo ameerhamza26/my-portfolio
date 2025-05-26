@@ -16,27 +16,27 @@ export const Experience: React.FC = () => {
   const jobs: Job[] = [
     {
       id: 1,
-      company: 'Upwork',
-      position: 'Senior Software Engineer',
-      location: 'Remote',
-      startDate: 'Jan 2022',
+      company: 'Next Generation Innovations',
+      position: 'Principan Engineer',
+      location: 'Karachi',
+      startDate: 'June 2024',
       endDate: 'Present',
       description: [
-        'Developed and maintained complex web applications using React, Next.js, and Node.js',
-        'Implemented responsive designs and optimized application performance',
-        'Collaborated with international clients to deliver high-quality solutions',
-        'Achieved Top Rated Plus status with 100% job success score'
+        'Initiated and architected a supplier integration platform using Clean Architecture within a monorepo structure, enabling scalable and maintainable codebase.',
+        'Reduced supplier integration time from weeks to under 2 days by building a reusable foundation that supports diverse supplier use cases across the system.',
+        'Collaborated closely with the DevOps team to migrate legacy systems to Kubernetes, leveraging ArgoCD for GitOps-based deployment pipelines.',
+        'Maintained continuous collaboration with Lead Engineer to review and iterate on architecture and design improvements for both backend services and infrastructure components.'
       ]
     },
     {
       id: 2,
-      company: 'Fiverr',
-      position: 'Full Stack Developer',
+      company: 'Simplifi',
+      position: 'Senior Software Engineer',
       location: 'Remote',
       startDate: 'Mar 2020',
       endDate: 'Dec 2021',
       description: [
-        'Built custom web applications for diverse client requirements',
+        'Transitioned our microservices from Postgres to Mysql in response to the need for on-premise data hosting in a specific country',
         'Specialized in React.js and Node.js development',
         'Maintained high customer satisfaction with 5-star ratings',
         'Delivered over 100 successful projects'
