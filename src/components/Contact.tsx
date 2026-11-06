@@ -4,10 +4,11 @@ import { profile } from '../data/profile';
 import { Section } from './ui/Section';
 import { SocialLinks } from './ui/SocialLinks';
 
-// Messages are delivered via FormSubmit (https://formsubmit.co), no backend needed.
-// The very first submission sends an activation email to the inbox; click it once.
-// Override with VITE_CONTACT_ENDPOINT (any JSON-accepting endpoint, e.g. Formspree).
-const ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT || `https://formsubmit.co/ajax/${profile.email}`;
+// Messages are delivered to the inbox via Web3Forms (https://web3forms.com), no backend needed.
+// The access key is public by design (it only allows sending to the registered email).
+// Free plan only accepts browser submissions, so test from the site, not curl.
+const ENDPOINT = 'https://api.web3forms.com/submit';
+const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || 'a7ef8109-2fed-4d39-b968-051aa7bce512';
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
 
@@ -27,17 +28,16 @@ export const Contact: React.FC = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: `Portfolio message from ${name}`,
+          from_name: 'ameerhamza.me',
           name,
           email,
           message,
-          _subject: `Portfolio message from ${name}`,
-          _replyto: email,
-          _template: 'table',
-          _captcha: 'false',
         }),
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok || data.success === false || data.success === 'false') throw new Error(data.message || 'Failed');
+      if (!res.ok || data.success !== true) throw new Error(data.message || 'Failed');
       setStatus('sent');
       setName('');
       setEmail('');
@@ -139,7 +139,7 @@ export const Contact: React.FC = () => {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              name="_honey"
+              name="botcheck"
               value={honey}
               onChange={(e) => setHoney(e.target.value)}
               className="hidden"
