@@ -1,57 +1,61 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useInView } from '../hooks/useInView';
+import React from 'react';
+import { Quote } from 'lucide-react';
+import { highlights, testimonial, yearsOfExperience } from '../data/profile';
+import { Section } from './ui/Section';
 
 export const About: React.FC = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { threshold: 0.1 });
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    if (isInView && !hasAnimated) {
-      setHasAnimated(true);
-    }
-  }, [isInView, hasAnimated]);
+  const years = yearsOfExperience();
 
   return (
-    <section id="about" className="py-20 bg-white">
-      <div 
-        ref={ref}
-        className={`container mx-auto px-4 md:px-6 transition-all duration-1000 ${
-          hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-        }`}
-      >
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
-            About Me
-          </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-10"></div>
-
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
-            <div className="md:col-span-2">
-              <div className="aspect-square rounded-xl overflow-hidden bg-gray-200">
-                <img 
-                  src="/images/profile.jpg" 
-                  alt="Professional portrait" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-            
-            <div className="md:col-span-3">
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-
-                I am a <strong>Software Engineer</strong> with 9 years of extensive experience in backend development, building features in Go and Java, system design, and cloud infrastructure. Over the course of my career, I have developed expertise in a wide array of tools, technologies, and frameworks to deliver secure, scalable, and efficient solutions for diverse industries.
-              </p>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              With strong expertise in Java, Go, and cloud-native technologies, I combine backend development proficiency with advanced architecture design and DevOps strategies. My passion lies in helping organizations implement scalable systems, automate infrastructure, and achieve engineering excellence.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-              I am continually driven to expand my knowledge and skills to contribute effectively within my areas of expertise. As a team player, I approach projects with dedication, motivation, and a commitment to excellence, fostering collaboration to achieve shared goals.
-              </p>
+    <Section id="about" title="About Me">
+      <div className="max-w-5xl mx-auto mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 items-center">
+          <div className="md:col-span-2">
+            <div className="aspect-square rounded-xl overflow-hidden bg-gray-200 shadow-lg">
+              <img src="/images/profile.jpg" alt="Ameer Hamza" className="w-full h-full object-cover" loading="lazy" />
             </div>
           </div>
+
+          <div className="md:col-span-3 space-y-5 text-lg text-gray-700 leading-relaxed">
+            <p>
+              I'm a hands-on <strong>backend technical lead</strong> with <strong>{years}+ years</strong> of experience across
+              enterprise SaaS, fintech and commerce. I build services in <strong>Java/Spring Boot and Go</strong>, and the{' '}
+              <strong>AWS and Kubernetes</strong> platforms they run on.
+            </p>
+            <p>
+              At Securiti AI I owned SAML SSO delivery and built Go platform features. At SimpliFi I led three engineers through
+              the M2P processor integration. Most recently, at ALFAH, I architected a supplier integration platform that cut
+              onboarding from weeks to under two days, and led its EKS platform build and handover to DevOps.
+            </p>
+            <p>
+              I care about clean architecture, automated testing, GitOps delivery and good observability. I enjoy owning problems
+              end-to-end, from design workshops to production incidents.
+            </p>
+          </div>
         </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+          <div className="bg-blue-50 rounded-xl p-5 text-center">
+            <div className="text-2xl md:text-3xl font-bold text-blue-600">{years}+ yrs</div>
+            <div className="text-sm text-gray-600 mt-1">Professional experience</div>
+          </div>
+          {highlights.map((h) => (
+            <div key={h.label} className="bg-blue-50 rounded-xl p-5 text-center">
+              <div className="text-2xl md:text-3xl font-bold text-blue-600">{h.value}</div>
+              <div className="text-sm text-gray-600 mt-1">{h.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <figure className="mt-12 bg-gray-50 rounded-xl p-8 relative">
+          <Quote className="absolute top-6 left-6 text-blue-200" size={40} aria-hidden="true" />
+          <blockquote className="relative text-gray-700 italic leading-relaxed pl-10">“{testimonial.quote}”</blockquote>
+          <figcaption className="mt-4 pl-10 text-sm">
+            <span className="font-semibold text-gray-900">{testimonial.author}</span>
+            <span className="text-gray-500"> · {testimonial.role}</span>
+          </figcaption>
+        </figure>
       </div>
-    </section>
+    </Section>
   );
 };
